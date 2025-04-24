@@ -1,0 +1,9 @@
+fastapi
+uvicorn
+httpx
+pydantic
+stripe
+twilio
+openai
+weasyprint
+supabase 

@@ -1,0 +1,25 @@
+name: cashflowboost
+language: python
+docker:
+  image: python:3.11-slim
+  env_file: .env
+  run_command: uvicorn integration_hub:app --host 0.0.0.0 --port 8000 --reload
+dependencies:
+  - fastapi
+  - uvicorn
+  - httpx
+  - pydantic
+  - weasyprint
+  - stripe
+  - twilio
+  - openai
+services:
+  - name: supabase
+    type: supabase
+    url: $SUPABASE_URL
+    key: $SUPABASE_KEY
+  - name: zapier
+    type: webhook
+    url: $ZAPIER_WEBHOOK_URL
+secrets:
+  - .env 
